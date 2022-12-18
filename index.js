@@ -1,13 +1,17 @@
-const express = require('express');
-const port = 3000;
-const app = express();
-const expressLayouts = require('express-ejs-layouts');
+const express = require('express'),
+port = 3000,
+app = express(),
+expressLayouts = require('express-ejs-layouts'),
+
+// requiring db module to establisth connection with DB
+db = require('./config/mongoose');
 
 // use static files
 app.use(express.static('./assets'));
 
 // use express layouts
 app.use(expressLayouts);
+
 // extract style and scripts from sub pages into the layout
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
