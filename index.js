@@ -1,4 +1,5 @@
 const express = require('express'),
+cookiePaser = require('cookie-parser'),
 port = 3000,
 app = express(),
 expressLayouts = require('express-ejs-layouts'),
@@ -6,6 +7,8 @@ expressLayouts = require('express-ejs-layouts'),
 // requiring db module to establisth connection with DB
 db = require('./config/mongoose');
 
+app.use(express.urlencoded({extended:false}));
+app.use(cookiePaser());
 // use static files
 app.use(express.static('./assets'));
 
